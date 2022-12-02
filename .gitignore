@@ -2,7 +2,7 @@ build/
 /tags
 /bazel-*
 
-#Files built by Visual Studio
+# Files built by Visual Studio
 *_i.c
 *_p.c
 *_h.h
@@ -34,3 +34,6 @@ build/
 *.vcxproj
 *.filters
 *.user
+
+# IntricateEngine CMake files
+yaml-cpp.cmake
