@@ -1,52 +1,44 @@
 -- OUT_DIR and INT_DIR must be defined in the top-most premake file before including this file
 
 project "yaml-cpp"
-	language "C++"
+    language "C++"
+    kind "StaticLib"
+    warnings "Off"
 
-	debugdir (OUT_DIR)
+    debugdir (OUT_DIR)
     targetdir (OUT_DIR)
     objdir (INT_DIR)
 
-	files
-	{
-		"include/**.h",
-		"src/**.h",
-		"src/**.cpp"
-	}
+    files
+    {
+        "include/**.h",
+        "src/**.h",
+        "src/**.cpp"
+    }
 
-	includedirs
-	{
-		"include"
-	}
+    includedirs
+    {
+        "include"
+    }
+
+    defines
+    {
+        "YAML_CPP_STATIC_DEFINE"
+    }
 
     filter "system:windows"
-		kind "SharedLib"
         systemversion "latest"
         cppdialect "C++11"
-		defines
-		{
-			"yaml_cpp_EXPORTS"
-		}
 
     filter "system:linux"
-		kind "StaticLib"
         systemversion "latest"
         cppdialect "gnu++11"
-		defines
-		{
-			"YAML_CPP_STATIC_DEFINE"
-		}
 
     filter "system:macosx"
-		kind "StaticLib"
         systemversion "latest"
         cppdialect "gnu++11"
-		defines
-		{
-			"YAML_CPP_STATIC_DEFINE"
-		}
 
-	filter "configurations:Debug"
+    filter "configurations:Debug"
         runtime "Debug"
         symbols "Full"
 
